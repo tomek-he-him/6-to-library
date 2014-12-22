@@ -2,7 +2,7 @@
 // -------------------------------------------------------------------------------------------------
 
 var UMDFormatter = require('6to5/lib/6to5/transformation/modules/umd');
-var util = require('6to5/lib/6to5/util');
+var util = require('./lib/util');
 
 
 // Main
