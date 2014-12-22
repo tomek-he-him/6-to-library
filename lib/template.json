@@ -1,0 +1,173 @@
+{ "type": "Program"
+, "body":
+  [ { "type": "ExpressionStatement"
+    , "expression":
+      { "type": "CallExpression"
+      , "callee":
+        { "type": "FunctionExpression"
+        , "id": null
+        , "params":
+          [ { "type": "Identifier"
+            , "name": "global"
+            }
+          , { "type": "Identifier"
+            , "name": "factory"
+            }
+          ]
+        , "defaults": []
+        , "body":
+          { "type": "BlockStatement"
+          , "body":
+            [ { "type": "IfStatement"
+              , "test":
+                { "type": "LogicalExpression"
+                , "operator": "&&"
+                , "left":
+                  { "type": "BinaryExpression"
+                  , "operator": "==="
+                  , "left":
+                    { "type": "UnaryExpression"
+                    , "operator": "typeof"
+                    , "argument":
+                      { "type": "Identifier"
+                      , "name": "define"
+                      }
+                    , "prefix": true
+                    }
+                  , "right":
+                    { "type": "Literal"
+                    , "value": "function"
+                    , "raw": "\"function\""
+                    }
+                  }
+                , "right":
+                  { "type": "MemberExpression"
+                  , "computed": false
+                  , "object":
+                    { "type": "Identifier"
+                    , "name": "define"
+                    }
+                  , "property":
+                    { "type": "Identifier"
+                    , "name": "amd"
+                    }
+                  }
+                }
+              , "consequent":
+                { "type": "BlockStatement"
+                , "body":
+                  [ { "type": "ExpressionStatement"
+                    , "expression":
+                      { "type": "CallExpression"
+                      , "callee":
+                        { "type": "Identifier"
+                        , "name": "define"
+                        }
+                      , "arguments":
+                        [ { "type": "ArrayExpression"
+                          , "elements":
+                            [ { "type": "Literal"
+                              , "value": "exports"
+                              , "raw": "\"exports\""
+                              }
+                            , { "type": "Literal"
+                              , "value": "mithril"
+                              , "raw": "\"mithril\""
+                              }
+                            ]
+                          }
+                        , { "type": "Identifier"
+                          , "name": "factory"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              , "alternate":
+                { "type": "IfStatement"
+                , "test":
+                  { "type": "BinaryExpression"
+                  , "operator": "!=="
+                  , "left":
+                    { "type": "UnaryExpression"
+                    , "operator": "typeof"
+                    , "argument":
+                      { "type": "Identifier"
+                      , "name": "exports"
+                      }
+                    , "prefix": true
+                    }
+                  , "right":
+                    { "type": "Literal"
+                    , "value": "undefined"
+                    , "raw": "\"undefined\""
+                    }
+                  }
+                , "consequent":
+                  { "type": "BlockStatement"
+                  , "body":
+                    [ { "type": "ExpressionStatement"
+                      , "expression":
+                        { "type": "CallExpression"
+                        , "callee":
+                          { "type": "Identifier"
+                          , "name": "factory"
+                          }
+                        , "arguments":
+                          [ { "type": "Identifier"
+                            , "name": "exports"
+                            }
+                          , { "type": "CallExpression"
+                            , "callee":
+                              { "type": "Identifier"
+                              , "name": "require"
+                              }
+                            , "arguments":
+                              [ { "type": "Literal"
+                                , "value": "mithril"
+                                , "raw": "\"mithril\""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                , "alternate": null
+                }
+              }
+            ]
+          }
+        , "rest": null
+        , "generator": false
+        , "expression": false
+        }
+      , "arguments":
+        [ { "type": "ThisExpression"
+          }
+        , { "type": "FunctionExpression"
+          , "id": null
+          , "params":
+            [ { "type": "Identifier"
+              , "name": "exports"
+              }
+            , { "type": "Identifier"
+              , "name": "_mithril"
+              }
+            ]
+          , "defaults": []
+          , "body":
+            { "type": "BlockStatement"
+            , "body": []
+            }
+          , "rest": null
+          , "generator": false
+          , "expression": false
+          }
+        ]
+      }
+    }
+  ]
+}
