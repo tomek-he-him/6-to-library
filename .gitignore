@@ -4,6 +4,9 @@
 # - All files and directories starting with "#",
 \#*
 
+# - Test output,
+/test/fixtures/*/output.js
+
 # - Automatically installed dependencies,
 node_modules/
 
