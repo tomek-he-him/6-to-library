@@ -29,7 +29,20 @@
   , "url": "https://github.com/tomekwi/web-umd.6to5.git"
   }
 
+, "scripts":
+  { "test": "node test | tap-dot"
+  }
 , "dependencies":
   { "6to5": "1.15.x"
+  , "101-es6": "0.9.x"
+  , "basename": "0.1.x"
+  , "camel-case": "1.0.x"
+  }
+, "devDependencies":
+  { "dirs": "0.1.2"
+  , "is-directory": "0.2.3"
+  , "tape": "3.0.3"
+  , "tap-dot": "0.2.3"
+  , "web-umd.6to5": "tomekwi/web-umd.6to5"
   }
 }
