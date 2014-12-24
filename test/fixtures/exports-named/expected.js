@@ -3,7 +3,7 @@
     define(["exports"], factory);
   } else if (typeof exports !== "undefined") {
     factory(exports);
-  } else factory((global.actual = {}));
+  } else factory(global.actual = {});
 })(this, function (exports) {
   "use strict";
 

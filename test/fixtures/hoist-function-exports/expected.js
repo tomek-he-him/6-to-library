@@ -3,7 +3,7 @@
     define(["exports", "./evens"], factory);
   } else if (typeof exports !== "undefined") {
     factory(exports, require("./evens"));
-  } else factory((global.actual = {}), global.evens);
+  } else factory(global.actual = {}, global.evens);
 })(function (exports, _evens) {
   "use strict";
 

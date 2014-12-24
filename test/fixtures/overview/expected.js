@@ -3,7 +3,7 @@
     define(["exports", "foo", "foo-bar", "./directory/foo-bar"], factory);
   } else if (typeof exports !== "undefined") {
     factory(exports, require("foo"), require("foo-bar"), require("./directory/foo-bar"));
-  } else factory((global.actual = {}), global.foo, global.fooBar, global.directoryFooBar);
+  } else factory(global.actual = {}, global.foo, global.fooBar, global.directoryFooBar);
 })(this, function (exports, _foo, _fooBar, _directoryFooBar) {
   "use strict";
 
