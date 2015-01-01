@@ -18,7 +18,7 @@ test('fixtures', function (tape) {
     var prettyName = fixtureName.charAt(0).toUpperCase() + fixtureName.slice(1);
     var transformed = to5.transformFileSync
       ( path.join(fixturePath, 'actual.js')
-      , {modules: 'web-umd.6to5'}
+      , {modules: 'web-umd'}
       ).code;
     fs.writeFileSync(path.join(fixturePath, 'output.js'), transformed);
 
