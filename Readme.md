@@ -1,7 +1,7 @@
 6to5.web-umd
 ============
 
-**A module formatter tailored for the browser. Works for AMD, CJS and simple globals.**
+**A 6to5 module formatter tailored for the browser. Works for AMD, CJS and globals.**
 
 
 

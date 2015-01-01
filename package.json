@@ -1,6 +1,6 @@
 { "name": "web-umd"
 , "version": "0.0.0"
-, "description": "A module formatter tailored for the browser. Works for AMD, CJS and simple globals."
+, "description": "A 6to5 module formatter tailored for the browser. Works for AMD, CJS and globals."
 , "license": "MIT"
 , "keywords":
   [ "6to5"
