@@ -1,5 +1,4 @@
-web-umd
-=======
+# web-umd [![Build status](https://img.shields.io/travis/tomekwi/web-umd.6to5.svg?style=flat-square)](https://travis-ci.org/tomekwi/web-umd.6to5) [![Code climate](https://img.shields.io/codeclimate/github/tomekwi/web-umd.6to5.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/web-umd.6to5)
 
 **A 6to5 module formatter tailored for the browser. Works for AMD, CJS and globals.**
 
