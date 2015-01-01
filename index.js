@@ -3,8 +3,8 @@
 
 var AMDFormatter = require('6to5/lib/6to5/transformation/modules/amd');
 var t = require('6to5/lib/6to5/types');
-var asArray = require('101-es6/as-array');
-var pluck = require('101-es6/pluck');
+var mapToArray = require('map-to/array');
+var pluck = require('101/pluck');
 var basename = require('basename');
 
 var util = require('./lib/util');
@@ -22,7 +22,7 @@ var self = function WebUMDFormatter () {
 util.inherits(self, AMDFormatter);
 
 
-// Override the method transform. This is mostly the code of the original UMDFormatter.
+// Override the method `transform`.
 self.prototype.transform = function (ast) {
   var moduleName;
   var program = ast.program;
@@ -30,8 +30,8 @@ self.prototype.transform = function (ast) {
   var globalImportIds = this.globalImportIds;
 
   // Parse module names.
-  var ids = asArray(this.ids);
-  var importIds = asArray(this.ids).map(function (id) {
+  var ids = mapToArray(this.ids);
+  var importIds = ids.map(function (id) {
     return globalImportIds[id.key];
     });
   var importLocations = ids.map(function (id) {
@@ -70,14 +70,22 @@ self.prototype.transform = function (ast) {
   };
 
 
+// Override the method `import`.
 self.prototype.import = function (node) {
+  // Add the import's specifier.
   this._pushSpecifier(node);
+
+  // Apply the super method.
   AMDFormatter.prototype.import.apply(this, arguments);
   };
 
 
+// Override the method `importSpecifier`.
 self.prototype.importSpecifier = function (specifierNode) {
+  // Add the import's specifier.
   this._pushSpecifier(specifierNode);
+
+  // Apply the super method.
   AMDFormatter.prototype.importSpecifier.apply(this, arguments);
   };
 
