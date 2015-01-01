@@ -16,47 +16,90 @@ var util = require('./lib/util');
 // Extend AMDFormatter.
 var self = function WebUMDFormatter () {
   AMDFormatter.apply(this, arguments);
-  this.exportsNamespace = t.toIdentifier(basename(this.file.opts.filename));
+  this.globalExportId = t.toIdentifier(basename(this.file.opts.filename));
+  this.globalImportIds = {};
   };
 util.inherits(self, AMDFormatter);
 
+
 // Override the method transform. This is mostly the code of the original UMDFormatter.
 self.prototype.transform = function (ast) {
+  var moduleName;
   var program = ast.program;
   var body = program.body;
+  var globalImportIds = this.globalImportIds;
 
-  // Build an array of module names.
-  var ids  = asArray(this.ids).map(pluck('value'));
-  var names = ids.map(function (module) {
-    return t.literal(module.name);
+  // Parse module names.
+  var ids = asArray(this.ids);
+  var importIds = asArray(this.ids).map(function (id) {
+    return globalImportIds[id.key];
     });
-  var specifiers = ids.map(function (module) {
-    return t.literal(module.specifierName);
+  var importLocations = ids.map(function (id) {
+    return t.literal(id.key);
     });
 
   // Create the factory.
-  var args = [t.identifier("exports")].concat(ids);
-  var factory = t.functionExpression(null, args, t.blockStatement(body));
+  var factory = t.functionExpression
+    ( null
+    , [t.identifier('exports')].concat(ids.map(pluck('value')))
+    , t.blockStatement(body)
+    );
 
   // Create the runner.
-  var defineArgs = [t.arrayExpression([t.literal("exports")].concat(names))];
-  var moduleName = this.getModuleName();
-  if (moduleName) defineArgs.unshift(t.literal(moduleName));
-
-  var runner = util.template("web-umd.runner-body",
-    { AMD_ARGUMENTS: defineArgs
-    , COMMON_ARGUMENTS: names.map(function (name) {
-      return t.callExpression(t.identifier("require"), [name]);
+  var runner = util.template('web-umd.runner-body',
+    { AMD_ARGUMENTS: [t.arrayExpression(
+      [].concat( (moduleName = this.getModuleName())
+               ? t.literal(moduleName)
+               : []
+               )
+        .concat(t.literal('exports'))
+        .concat(importLocations)
+      )]
+    , COMMON_ARGUMENTS: importLocations.map(function (name) {
+      return t.callExpression(t.identifier('require'), [name]);
       })
-    , GLOBAL_EXPORTS: [util.template("web-umd.global-exports",
-      { EXPORTS_NAMESPACE: this.exportsNamespace
+    , GLOBAL_EXPORTS: [util.template('web-umd.global-exports',
+      { EXPORTS_NAMESPACE: this.globalExportId
       })]
-    , GLOBAL_IMPORTS: []
+    , GLOBAL_IMPORTS: importIds
     });
 
   // Finish off.
   var call = t.callExpression(runner, [t.thisExpression(), factory]);
   program.body = [t.expressionStatement(call)];
+  };
+
+
+self.prototype.import = function (node) {
+  this._pushSpecifier(node);
+  AMDFormatter.prototype.import.apply(this, arguments);
+  };
+
+
+self.prototype.importSpecifier = function (specifierNode) {
+  this._pushSpecifier(specifierNode);
+  AMDFormatter.prototype.importSpecifier.apply(this, arguments);
+  };
+
+
+self.prototype._pushSpecifier = function (node) {
+  var name = ( node.type == 'ImportDeclaration'
+             ? node.source.value
+             : node._parent.source.value
+             );
+  var ids = this.globalImportIds;
+
+  return (
+    (  ids[name]
+    || (ids[name] = util.template('web-umd.global-import',
+          { IMPORT_IDENTIFIER: t.toIdentifier(
+            ( node.default && node.id && node.id.name
+            ? node.id.name
+            : name
+            ))
+          })
+       )
+    ));
   };
 
 

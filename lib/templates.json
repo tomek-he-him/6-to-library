@@ -174,4 +174,21 @@
       }
     ]
   }
+
+, "web-umd.global-import":
+  { "type": "Program"
+  , "body":
+    [ { "type": "MemberExpression"
+      , "computed": false
+      , "object":
+        { "type": "Identifier"
+        , "name": "global"
+        }
+      , "property":
+        { "type": "Identifier"
+        , "name": "IMPORT_IDENTIFIER"
+        }
+      }
+    ]
+  }
 }
