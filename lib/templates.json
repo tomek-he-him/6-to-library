@@ -1,4 +1,4 @@
-{ "web-umd-runner-body":
+{ "web-umd.runner-body":
   { "type": "Program"
   , "body":
     [ { "type": "ExpressionStatement"
@@ -146,7 +146,8 @@
       }
     ]
   }
-, "web-umd-global-exports":
+
+, "web-umd.global-exports":
   { "type": "Program"
   , "body":
     [ { "type": "ExpressionStatement"

@@ -44,12 +44,12 @@ self.prototype.transform = function (ast) {
   var moduleName = this.getModuleName();
   if (moduleName) defineArgs.unshift(t.literal(moduleName));
 
-  var runner = util.template("web-umd-runner-body",
+  var runner = util.template("web-umd.runner-body",
     { AMD_ARGUMENTS: defineArgs
     , COMMON_ARGUMENTS: names.map(function (name) {
       return t.callExpression(t.identifier("require"), [name]);
       })
-    , GLOBAL_EXPORTS: [util.template("web-umd-global-exports",
+    , GLOBAL_EXPORTS: [util.template("web-umd.global-exports",
       { EXPORTS_NAMESPACE: this.exportsNamespace
       })]
     , GLOBAL_IMPORTS: []
