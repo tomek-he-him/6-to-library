@@ -7,7 +7,6 @@ var asArray = require('101-es6/as-array');
 var pluck = require('101-es6/pluck');
 var assign = require('101-es6/assign');
 var basename = require('basename');
-var camelCase = require('camel-case');
 
 var util = require('./lib/util');
 
@@ -18,7 +17,7 @@ var util = require('./lib/util');
 // Extend AMDFormatter.
 var self = function WebUMDFormatter () {
   AMDFormatter.apply(this, arguments);
-  this.exportsNamespace = camelCase(basename(this.file.opts.filename));
+  this.exportsNamespace = t.toIdentifier(basename(this.file.opts.filename));
   };
 util.inherits(self, AMDFormatter);
 

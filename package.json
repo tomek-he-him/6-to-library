@@ -36,7 +36,6 @@
   { "6to5": "1.15.x"
   , "101-es6": "0.9.x"
   , "basename": "0.1.x"
-  , "camel-case": "1.0.x"
   }
 , "devDependencies":
   { "dirs": "0.1.2"
