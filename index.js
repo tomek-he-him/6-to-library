@@ -5,7 +5,6 @@ var AMDFormatter = require('6to5/lib/6to5/transformation/modules/amd');
 var t = require('6to5/lib/6to5/types');
 var asArray = require('101-es6/as-array');
 var pluck = require('101-es6/pluck');
-var assign = require('101-es6/assign');
 var basename = require('basename');
 
 var util = require('./lib/util');
