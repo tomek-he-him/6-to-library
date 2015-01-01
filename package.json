@@ -30,7 +30,8 @@
   }
 
 , "scripts":
-  { "test": "node test | tap-dot"
+  { "test": "node test"
+  , "pretty-test": "node test | tap-dot"
   }
 , "dependencies":
   { "6to5": "1.15.x"
