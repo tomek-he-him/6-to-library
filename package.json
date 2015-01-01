@@ -44,6 +44,7 @@
   , "is-directory": "0.2.3"
   , "tape": "3.0.3"
   , "tap-dot": "0.2.3"
+  , "trimmer": "1.0.0"
   , "web-umd.6to5": "tomekwi/web-umd.6to5"
   }
 }
