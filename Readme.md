@@ -26,7 +26,6 @@ export default baz[bar];
 ```
 
 ##### Output
-(Comments and whitespace added for clarity.)
 
 ```js
 (function (global, factory) {
@@ -55,6 +54,8 @@ export default baz[bar];
   exports["default"] = baz[bar];
 });
 ```
+
+_(Comments and whitespace added for clarity.)_
 
 
 [amdWeb]: https://github.com/umdjs/umd/blob/master/amdWeb.js
