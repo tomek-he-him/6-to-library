@@ -3,11 +3,10 @@
 
 var AMDFormatter = require('6to5/lib/6to5/transformation/modules/amd');
 var t = require('6to5/lib/6to5/types');
+var util = require('6to5/lib/6to5/util');
 var mapToArray = require('map-to/array');
 var pluck = require('101/pluck');
 var basename = require('basename');
-
-var util = require('./lib/util');
 
 
 // Main

@@ -22,6 +22,8 @@
     }
   ]
 
+, "main": "source/index.js"
+
 , "repository":
   { "type": "git"
   , "url": "https://github.com/tomekwi/6-to-library.js.git"
