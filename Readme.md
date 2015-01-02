@@ -6,10 +6,10 @@
 [![Build status](https://img.shields.io/travis/tomekwi/6-to-library.js.svg?style=flat-square)](https://travis-ci.org/tomekwi/6-to-library.js) 
 [![Code climate](https://img.shields.io/codeclimate/github/tomekwi/6-to-library.js.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/6-to-library.js)
 
-[Author in ES6, distribute everywhere][ryan]. Seamlessly target NPM and browsers.
+[“Author in ES6, distribute everywhere.”][ryan] Seamlessly target NPM and browsers.
 
 
-[ryan]: http://ryanflorence.com/2013/es6-modules-and-browser-app-delivery/
+[ryan]: http://ryanflorence.com/2013/es6-modules-and-browser-app-delivery/ "“ES6 Modules, Build Tools and Browser App Delivery” by Ryan Florence"
 
 
 
