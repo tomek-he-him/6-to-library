@@ -14,4 +14,8 @@
   exports["default"] = foo;
   exports["default"] = foo;
   exports.bar = bar;
+
+  if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
+    exports = exports["default"];
+  }
 });

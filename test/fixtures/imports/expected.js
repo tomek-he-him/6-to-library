@@ -6,4 +6,8 @@
   } else factory(global.actual = {}, global.foo, global.fooBar, global.directoryFooBar);
 })(this, function (exports, _foo, _fooBar, _directoryFooBar) {
   "use strict";
+
+  if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
+    exports = exports["default"];
+  }
 });
