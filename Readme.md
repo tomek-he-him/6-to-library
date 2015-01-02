@@ -68,13 +68,7 @@ export default baz[bar];
     factory(exports, require("./foo/foo"), require("bar"));
 
   // Globals
-  } else {
-    factory(global.myModule = {}, global.fooFoo, global.baz);
-    exportedKeys = Object.keys(global.myModule);
-    if (exportedKeys.length == 1 && exportedKeys[0] == 'default') {
-      global.myModule = global.myModule.default;
-    }
-  }
+  } else factory(global.myModule = {}, global.fooFoo, global.baz);
 
 })(this, function (exports, _fooFoo, _bar) {
   "use strict";
@@ -87,6 +81,10 @@ export default baz[bar];
   var baz = _interopRequire(_bar);
 
   exports["default"] = baz[bar];
+
+  if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
+    exports = exports["default"];
+  }
 });
 ```
 
