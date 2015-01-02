@@ -19,6 +19,8 @@ In your transpiled files you get the [amdWeb][] module definition, modified to s
 ##### Input
 
 ```js
+// my-module.js
+
 import {foo as bar} from "./foo/foo";
 import baz from "bar";
 
@@ -29,6 +31,7 @@ export default baz[bar];
 
 ```js
 (function (global, factory) {
+  var exportedKeys;
 
   // AMD
   if (typeof define === "function" && define.amd) {
@@ -39,7 +42,13 @@ export default baz[bar];
     factory(exports, require("./foo/foo"), require("bar"));
 
   // Globals
-  } else factory(global.a = {}, global.fooFoo, global.baz);
+  } else {
+    factory(global.myModule = {}, global.fooFoo, global.baz);
+    exportedKeys = Object.keys(global.myModule);
+    if (exportedKeys.length == 1 && exportedKeys[0] == 'default') {
+      global.myModule = global.myModule.default;
+    }
+  }
 
 })(this, function (exports, _fooFoo, _bar) {
   "use strict";
