@@ -4,17 +4,40 @@
 
 [![Build status](https://img.shields.io/travis/tomekwi/web-umd.6to5.svg?style=flat-square)](https://travis-ci.org/tomekwi/web-umd.6to5) [![Code climate](https://img.shields.io/codeclimate/github/tomekwi/web-umd.6to5.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/web-umd.6to5)
 
-Use ES6 modules today – with or without the overhead of a module system. Leave the decision to the user of your code.
+ES6 modules today – on the server or in the browser – with or without the overhead of a module system – even just as a `<script>` tag.
 
-Useful for libraries targeted at the browser.
-
-
+Leave these decisions to the user of your code.
 
 
-What's inside
--------------
 
-In your transpiled files you get the [amdWeb][] module definition, modified to support CommonJS modules as well. The original proposal comes from the [Universal Module Definition][] working group.
+
+Installation
+------------
+
+```sh
+> npm install web-umd
+```
+
+
+
+
+Usage
+-----
+
+Through the 6to5 CLI:
+
+```sh
+6to5 --modules web-umd ...
+```
+
+Programatically:
+
+```js
+var to5 = require("6to5");
+to5.transform('...', {modules: 'web-umd'});
+```
+
+In your transpiled files you get the [amdWeb][] module definition, modified to support CommonJS modules as well. The original proposal comes from the [UMD][] working group.
 
 ##### Input
 
@@ -69,34 +92,6 @@ _(Comments and whitespace added for clarity.)_
 
 [amdWeb]: https://github.com/umdjs/umd/blob/master/amdWeb.js
 [Universal Module Definition]: https://github.com/umdjs/umd
-
-
-
-Installation
-------------
-
-```sh
-> npm install web-umd
-```
-
-
-
-
-Usage
------
-
-Through 6to5's CLI:
-
-```sh
-6to5 --modules web-umd
-```
-
-Programatically:
-
-```js
-var to5 = require("6to5");
-to5.transform('code();', {modules: 'web-umd'});
-```
 
 
 
