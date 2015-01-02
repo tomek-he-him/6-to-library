@@ -34,9 +34,9 @@
   , "pretty-test": "node test | tap-dot"
   }
 , "dependencies":
-  { "6to5": "1.15.x"
-  , "101": "0.8.0"
-  , "map-to": "0.0.2"
+  { "6to5": "2.4.x"
+  , "101": "0.8.x"
+  , "map-to": "0.0.x"
   , "basename": "0.1.x"
   }
 , "devDependencies":
@@ -45,6 +45,6 @@
   , "tape": "3.0.3"
   , "tap-dot": "0.2.3"
   , "trimmer": "1.0.0"
-  , "web-umd.6to5": "tomekwi/web-umd.6to5"
+  , "web-umd": "tomekwi/web-umd.6to5"
   }
 }
