@@ -13,7 +13,7 @@ var basename = require('basename');
 // -------------------------------------------------------------------------------------------------
 
 // Extend AMDFormatter.
-var self = function WebUMDFormatter () {
+var self = function SixToLibrary () {
   AMDFormatter.apply(this, arguments);
   this.globalExportId = t.toIdentifier(basename(this.file.opts.filename));
   this.globalImportIds = {};
