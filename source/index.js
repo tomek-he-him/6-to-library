@@ -1,12 +1,14 @@
 // Imports
 // -------------------------------------------------------------------------------------------------
 
+var pluck = require('101/pluck');
 var AMDFormatter = require('6to5/lib/6to5/transformation/modules/amd');
 var t = require('6to5/lib/6to5/types');
 var util = require('6to5/lib/6to5/util');
 var mapToArray = require('map-to/array');
-var pluck = require('101/pluck');
 var basename = require('basename');
+
+var template = require('./template');
 
 
 // Main
@@ -45,21 +47,21 @@ self.prototype.transform = function (ast) {
     );
 
   // Create the runner.
-  var runner = util.template('web-umd.runner-body',
+  var runner = template('runner-body',
     { AMD_ARGUMENTS: [t.arrayExpression(
-      [].concat( (moduleName = this.getModuleName())
-               ? t.literal(moduleName)
-               : []
-               )
-        .concat(t.literal('exports'))
-        .concat(importLocations)
-      )]
+        [].concat( (moduleName = this.getModuleName())
+                 ? t.literal(moduleName)
+                 : []
+                 )
+          .concat(t.literal('exports'))
+          .concat(importLocations)
+        )]
     , COMMON_ARGUMENTS: importLocations.map(function (name) {
-      return t.callExpression(t.identifier('require'), [name]);
-      })
-    , GLOBAL_EXPORTS: [util.template('web-umd.global-exports',
-      { EXPORTS_NAMESPACE: this.globalExportId
-      })]
+        return t.callExpression(t.identifier('require'), [name]);
+        })
+    , GLOBAL_EXPORTS: [template('global-exports',
+        { EXPORTS_NAMESPACE: t.identifier(this.globalExportId)
+        })]
     , GLOBAL_IMPORTS: importIds
     });
 
@@ -69,44 +71,37 @@ self.prototype.transform = function (ast) {
   };
 
 
-// Override the method `import`.
-self.prototype.import = function (node) {
+// Override the method `importDeclaration`.
+self.prototype.importDeclaration = function (declaration) {
   // Add the import's specifier.
-  this._pushSpecifier(node);
+  this._pushSpecifier(declaration);
 
   // Apply the super method.
-  AMDFormatter.prototype.import.apply(this, arguments);
+  AMDFormatter.prototype.importDeclaration.apply(this, arguments);
   };
 
 
 // Override the method `importSpecifier`.
-self.prototype.importSpecifier = function (specifierNode) {
+self.prototype.importSpecifier = function (specifier, declaration) {
   // Add the import's specifier.
-  this._pushSpecifier(specifierNode);
+  this._pushSpecifier(declaration, specifier);
 
   // Apply the super method.
   AMDFormatter.prototype.importSpecifier.apply(this, arguments);
   };
 
 
-self.prototype._pushSpecifier = function (node) {
-  var name = ( node.type == 'ImportDeclaration'
-             ? node.source.value
-             : node._parent.source.value
-             );
+self.prototype._pushSpecifier = function (declaration, specifier) {
+  var name = declaration.source.value;
   var ids = this.globalImportIds;
 
-  return (
-    (  ids[name]
-    || (ids[name] = util.template('web-umd.global-import',
-          { IMPORT_IDENTIFIER: t.toIdentifier(
-            ( node.default && node.id && node.id.name
-            ? node.id.name
-            : name
-            ))
-          })
-       )
-    ));
+  if (!ids[name]) ids[name] = template('global-import',
+    { IMPORT_IDENTIFIER: t.identifier(t.toIdentifier(
+      (  specifier && specifier.default && specifier.id && specifier.id.name
+      || name
+      )))
+    });
+  return ids[name];
   };
 
 
