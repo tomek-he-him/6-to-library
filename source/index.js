@@ -5,7 +5,7 @@ var pluck = require('101/pluck');
 var AMDFormatter = require('6to5/lib/6to5/transformation/modules/amd');
 var t = require('6to5/lib/6to5/types');
 var util = require('6to5/lib/6to5/util');
-var mapToArray = require('map-to/array');
+var asArray = require('as/array');
 var basename = require('basename');
 
 var template = require('./template');
@@ -31,7 +31,7 @@ self.prototype.transform = function (ast) {
   var globalImportIds = this.globalImportIds;
 
   // Parse module names.
-  var ids = mapToArray(this.ids);
+  var ids = asArray(this.ids);
   var importIds = ids.map(function (id) {
     return globalImportIds[id.key];
     });

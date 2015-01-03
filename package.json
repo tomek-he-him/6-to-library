@@ -35,7 +35,7 @@
 , "dependencies":
   { "6to5": "2.4.x"
   , "101": "0.8.x"
-  , "map-to": "0.0.x"
+  , "as": "0.0.x"
   , "basename": "0.1.x"
   }
 , "devDependencies":
