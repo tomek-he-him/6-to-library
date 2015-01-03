@@ -30,8 +30,7 @@
   }
 
 , "scripts":
-  { "test": "node test"
-  , "pretty-test": "node test | tap-dot"
+  { "test": "node test | faucet"
   }
 , "dependencies":
   { "6to5": "2.4.x"
@@ -41,9 +40,9 @@
   }
 , "devDependencies":
   { "dirs": "0.1.2"
+  , "faucet": "0.0.1"
   , "is-directory": "0.2.3"
   , "tape": "3.0.3"
-  , "tap-dot": "0.2.3"
   , "trimmer": "1.0.0"
   , "web-umd": "tomekwi/web-umd.6to5"
   }
