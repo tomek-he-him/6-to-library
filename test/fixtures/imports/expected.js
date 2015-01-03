@@ -6,5 +6,4 @@
   } else if (typeof exports !== "undefined") {
     factory(exports, require("foo"), require("foo-bar"), require("./directory/foo-bar"));
   } else factory(global.actual = {}, global.foo, global.fooBar, global.directoryFooBar);
-})(this, function (exports, _foo, _fooBar, _directoryFooBar) {
-});
+})(this, function (exports, _foo, _fooBar, _directoryFooBar) {});

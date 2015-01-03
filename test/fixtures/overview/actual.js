@@ -1,8 +1,8 @@
 import "foo";
 import "foo-bar";
 import "./directory/foo-bar";
-import baz from "foo";
-import * as baz from "foo";
+import foo from "foo";
+import * as foo from "foo";
 import {bar} from "foo";
 import {foo as bar} from "foo";
 

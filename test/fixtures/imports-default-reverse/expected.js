@@ -11,7 +11,7 @@
     return obj && (obj["default"] || obj);
   };
 
-  var bar = _interopRequire(_foo);
-
   var baz = _foo["default"];
+
+  var bar = _interopRequire(_foo);
 });

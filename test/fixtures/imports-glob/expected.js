@@ -7,5 +7,5 @@
     factory(exports, require("foo"));
   } else factory(global.actual = {}, global.bar);
 })(this, function (exports, _foo) {
-  var bar = _foo;
+  var foo = _foo;
 });

@@ -11,9 +11,9 @@
     return obj && (obj["default"] || obj);
   };
 
-  var baz = _interopRequire(_foo);
+  var foo = _interopRequire(_foo);
 
-  var baz = _foo;
+  var foo = _foo;
   var bar = _foo.bar;
   var bar = _foo.foo;
   exports.test = test;
