@@ -1,3 +1,5 @@
+"use strict";
+
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
     define(["exports"], factory);
@@ -5,8 +7,6 @@
     factory(exports);
   } else factory(global.actual = {});
 })(this, function (exports) {
-  "use strict";
-
   exports.foo7 = foo7;
   var foo = exports.foo = 1;
   var foo2 = exports.foo2 = function () {};
