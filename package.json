@@ -30,7 +30,7 @@
   }
 
 , "scripts":
-  { "test": "node test | faucet"
+  { "test": "node test"
   }
 , "dependencies":
   { "6to5": "2.4.x"
@@ -40,7 +40,6 @@
   }
 , "devDependencies":
   { "dirs": "0.1.2"
-  , "faucet": "0.0.1"
   , "is-directory": "0.2.3"
   , "tape": "3.0.3"
   , "trimmer": "1.0.0"
