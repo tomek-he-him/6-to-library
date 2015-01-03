@@ -18,8 +18,4 @@
   var foo8 = function foo8() {};
 
   exports.foo8 = foo8;
-
-  if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
-    exports = exports["default"];
-  }
 });

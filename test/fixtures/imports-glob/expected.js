@@ -8,8 +8,4 @@
   } else factory(global.actual = {}, global.bar);
 })(this, function (exports, _foo) {
   var bar = _foo;
-
-  if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
-    exports = exports["default"];
-  }
 });
