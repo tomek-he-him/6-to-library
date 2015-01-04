@@ -6,7 +6,7 @@
   } else if (typeof exports !== "undefined") {
     factory(exports, require("./evens"));
   } else factory(global.actual = {}, global.evens);
-})(function (exports, _evens) {
+})(this, function (exports, _evens) {
   exports.nextOdd = nextOdd;
   var isEven = _evens.isEven;
   function nextOdd(n) {

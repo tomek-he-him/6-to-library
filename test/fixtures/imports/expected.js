@@ -1,6 +1,6 @@
 "use strict";
 
-(function (this, factory) {
+(function (global, factory) {
   if (typeof define === "function" && define.amd) {
     define(["exports", "foo", "foo-bar", "./directory/foo-bar"], factory);
   } else if (typeof exports !== "undefined") {
