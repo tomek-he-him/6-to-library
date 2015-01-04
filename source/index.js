@@ -106,21 +106,23 @@ self.prototype.exportSpecifier = function (specifier, declaration) {
 
 
 self.prototype._pushGlobalIdentifier = function (declaration, specifier) {
-  var name =
-    (  specifier && specifier.default && specifier.id && specifier.id.name
+  var name = declaration.source && declaration.source.value;
+  var identifier = t.toIdentifier
+    (  specifier && specifier.default !== false && specifier.name && specifier.name.name
     || specifier && specifier.type == "ExportSpecifier" && specifier.id && specifier.id.name
-    || declaration.source && declaration.source.value
+    || name
     || null
     );
-  if (name === null) throw new Error
+  if (identifier === null) throw new Error
     ( "Unable to resolve global identifier "
     + "for the declaration:\n" + nodeUtil.inspect(declaration) + "\n"
     + "and specifier:\n" + nodeUtil.inspect(specifier) + "."
     );
+
   var ids = this.globalIds;
 
   if (!ids[name]) ids[name] = template("global-import",
-    { IMPORT_IDENTIFIER: t.identifier(t.toIdentifier(name))
+    { IMPORT_IDENTIFIER: t.identifier(identifier)
     });
   return ids[name];
   };
