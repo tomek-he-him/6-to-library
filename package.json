@@ -31,6 +31,7 @@
 
 , "scripts":
   { "test": "node test"
+  , "coveralls": "istanbul cover test --report lcovonly && coveralls < ./coverage/lcov.info"
   }
 , "dependencies":
   { "6to5": "2.4.x"
@@ -39,8 +40,10 @@
   , "basename": "0.1.x"
   }
 , "devDependencies":
-  { "dirs": "0.1.2"
+  { "coveralls": "2.11.2"
+  , "dirs": "0.1.2"
   , "is-directory": "0.2.3"
+  , "istanbul": "0.3.5"
   , "tape": "3.0.3"
   , "trimmer": "1.0.0"
   , "web-umd": "tomekwi/web-umd.6to5"
