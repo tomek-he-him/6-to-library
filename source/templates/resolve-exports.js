@@ -1,3 +1,3 @@
-if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
+if (Object.keys(exports).length == 1 && exports.propertyIsEnumerable("default")) {
   exports = exports["default"];
 }

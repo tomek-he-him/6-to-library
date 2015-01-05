@@ -29,7 +29,6 @@ util.inherits(self, AMDFormatter);
 self.prototype.transform = function (ast) {
   var moduleName;
   var program = ast.program;
-  var body = program.body;
   var rawGlobalIds = this.globalIds;
 
   // Parse module names.
@@ -47,7 +46,10 @@ self.prototype.transform = function (ast) {
   var factory = t.functionExpression
     ( null
     , [t.identifier('exports')].concat(ids.map(pluck('value')))
-    , t.blockStatement(body)
+    , t.blockStatement(
+        program.body
+          .concat(template('resolve-exports'))
+        )
     );
 
   // Create the runner.
