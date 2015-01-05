@@ -40,12 +40,12 @@
   , "basename": "0.1.x"
   }
 , "devDependencies":
-  { "coveralls": "2.11.2"
+  { "6-to-library": "tomekwi/6-to-library.js"
+  , "coveralls": "2.11.2"
   , "dirs": "0.1.2"
   , "is-directory": "0.2.3"
   , "istanbul": "0.3.5"
   , "tape": "3.0.3"
   , "trimmer": "1.0.0"
-  , "web-umd": "tomekwi/web-umd.6to5"
   }
 }
