@@ -21,7 +21,7 @@
   exports["default"] = _foo.foo;
   exports.bar = _foo.bar;
 
-  if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
+  if (Object.keys(exports).length == 1 && exports.propertyIsEnumerable("default")) {
     exports = exports["default"];
   }
 });
