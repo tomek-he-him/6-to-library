@@ -34,7 +34,7 @@
   , "coveralls": "istanbul cover test --report lcovonly && coveralls < ./coverage/lcov.info"
   }
 , "dependencies":
-  { "6to5": "2.4.x"
+  { "6to5": "2.5.x"
   , "101": "0.8.x"
   , "as": "0.1.x"
   , "basename": "0.1.x"
