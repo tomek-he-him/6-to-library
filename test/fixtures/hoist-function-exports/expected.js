@@ -1,5 +1,3 @@
-"use strict";
-
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
     define(["exports", "./evens"], factory);
@@ -7,6 +5,8 @@
     factory(exports, require("./evens"));
   } else factory(global.actual = {}, global.evens);
 })(this, function (exports, _evens) {
+  "use strict"
+
   exports.nextOdd = nextOdd;
   var isEven = _evens.isEven;
   function nextOdd(n) {
