@@ -5,7 +5,7 @@
     define(["exports", "foo"], factory);
   } else if (typeof exports !== "undefined") {
     factory(exports, require("foo"));
-  } else factory(global.actual = {}, global.bar);
+  } else factory(global.actual = {}, global.foo);
 })(this, function (exports, _foo) {
   var foo = _foo;
 });
