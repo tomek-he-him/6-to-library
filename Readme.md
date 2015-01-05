@@ -1,10 +1,10 @@
+ [![Build status](https://img.shields.io/travis/tomekwi/6-to-library.js.svg?style=flat-square)](https://travis-ci.org/tomekwi/6-to-library.js)
+ [![Code climate](https://img.shields.io/codeclimate/github/tomekwi/6-to-library.js.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/6-to-library.js)
+
 6-to-library
 ============
 
 **The 6to5 formatter for library authors.**
-
-[![Build status](https://img.shields.io/travis/tomekwi/6-to-library.js.svg?style=flat-square)](https://travis-ci.org/tomekwi/6-to-library.js) 
-[![Code climate](https://img.shields.io/codeclimate/github/tomekwi/6-to-library.js.svg?style=flat-square)](https://codeclimate.com/github/tomekwi/6-to-library.js)
 
 [“Author in ES6, distribute everywhere.”][ryan] Seamlessly target NPM and browsers.
 
