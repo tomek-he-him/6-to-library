@@ -18,7 +18,6 @@
       return !isEven(n);
     };
   })(isEven);
-
   if (Object.keys(exports).length == 1 && exports.propertyIsEnumerable("default")) {
     exports = exports["default"];
   }
