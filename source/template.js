@@ -6,7 +6,7 @@ var util = require("6to5/lib/6to5/util");
 var traverse = require("6to5/lib/6to5/traverse");
 var t = require("6to5/lib/6to5/types");
 var basename = require("basename");
-var mapToObject = require("map-to/object");
+var asObject = require("as/object");
 
 var template, templates;
 
@@ -37,17 +37,17 @@ module.exports = template = function template (name, nodes) {
 template.templates = templates = (function gettingTemplates () {
   var templatesDir = path.join(__dirname, "templates");
 
-  return mapToObject
+  return asObject
     ( fs.readdirSync(templatesDir).map(function (filename) {
-      if (filename.charAt(0) == ".") return null;
+        if (filename.charAt(0) == ".") return null;
 
-      var location = path.join(templatesDir, filename);
-      var code = fs.readFileSync(location, "utf8");
+        var location = path.join(templatesDir, filename);
+        var code = fs.readFileSync(location, "utf8");
 
-      return (
-        { key: basename(filename)
-        , value: util.parseTemplate(location, code)
-        });
-      })
+        return (
+          { key: basename(filename)
+          , value: util.parseTemplate(location, code)
+          });
+        })
     );
   })();
