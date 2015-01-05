@@ -21,9 +21,13 @@ var self = function SixToLibrary () {
   AMDFormatter.apply(this, arguments);
   this.globalExportId = t.toIdentifier(basename(this.file.opts.filename));
   this.globalIds = {};
+
+  // Remove the module-wide "use strict" statement.
+  this.file.transformers = this.file.transformers.filter(function (transformer) {
+    return (transformer.key != 'useStrict');
+    });
   };
 util.inherits(self, AMDFormatter);
-
 
 // Override the method `transform`.
 self.prototype.transform = function (ast) {
@@ -47,7 +51,8 @@ self.prototype.transform = function (ast) {
     ( null
     , [t.identifier('exports')].concat(ids.map(pluck('value')))
     , t.blockStatement(
-        program.body
+        [].concat(t.literal('use strict'))
+          .concat(program.body)
           .concat(template('resolve-exports'))
         )
     );
