@@ -14,4 +14,8 @@
   var baz = _interopRequire(_foo);
 
   var bar = _interopRequire(_foo);
+
+  if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
+    exports = exports["default"];
+  }
 });

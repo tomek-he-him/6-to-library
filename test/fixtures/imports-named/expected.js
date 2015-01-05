@@ -13,4 +13,8 @@
   var baz = _foo.bar;
   var baz = _foo.bar;
   var xyz = _foo.xyz;
+
+  if (Object.keys(exports).length == 1 && exports.hasOwnProperty("default")) {
+    exports = exports["default"];
+  }
 });
