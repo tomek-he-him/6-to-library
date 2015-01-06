@@ -1,9 +1,23 @@
 (function (global, factory) {
+  var root, exportsName, factoryArguments;
   if (typeof define === "function" && define.amd) {
     define(["exports", "./evens"], factory);
-  } else if (typeof exports !== "undefined") {
-    factory(exports, require("./evens"));
-  } else factory(global.actual = {}, global.evens);
+  } else {
+    if (module && typeof module.exports !== "undefined") {
+      factoryArguments = [module.exports, require("./evens")];
+      root = module;
+      exportsName = "exports";
+    } else {
+      factoryArguments = [global.actual = {}, global.evens];
+      root = global;
+      exportsName = "actual";
+    }
+    factory.apply(null, factoryArguments);
+
+    if (Object.keys(root[exportsName]).length == 1 && root[exportsName].propertyIsEnumerable("default")) {
+      root[exportsName] = root[exportsName]["default"];
+    }
+  }
 })(this, function (exports, _evens) {
   "use strict"
 
@@ -18,7 +32,4 @@
       return !isEven(n);
     };
   })(isEven);
-  if (Object.keys(exports).length == 1 && exports.propertyIsEnumerable("default")) {
-    exports = exports["default"];
-  }
 });

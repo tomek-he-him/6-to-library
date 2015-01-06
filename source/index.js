@@ -53,7 +53,6 @@ self.prototype.transform = function (ast) {
     , t.blockStatement(
         [].concat(t.literal('use strict'))
           .concat(program.body)
-          .concat(template('resolve-exports'))
         )
     );
 
@@ -74,6 +73,7 @@ self.prototype.transform = function (ast) {
         { EXPORTS_NAMESPACE: t.identifier(this.globalExportId)
         })]
     , GLOBAL_IMPORTS: globalIds
+    , GLOBAL_EXPORTS_NAME: t.literal(this.globalExportId)
     });
 
   // Finish off.
