@@ -105,9 +105,10 @@ How does it work
 
 ##### Export/import names
 
-[“ECMAScript 6 favors the single/default export style, and gives the sweetest syntax to importing the default.”][david-herman] We encourage it as well. If you export only the default value, it will work just as seamlessly as in the examples above.
+[“ECMAScript 6 favors the single/default export style, and gives the sweetest syntax to importing the default.”][david-herman] We do the same. If you only export the default, your library will work as seamlessly as in the examples above.
 
-Otherwise you will need to reference the export explicitly by its name:
+Otherwise you'll have to reference each export by its name:
+
 ```js
 // original.js
 export default 1;
