@@ -1,14 +1,14 @@
 (function (global, factory) {
   var root, exportsName, factoryArguments;
   if (typeof define === "function" && define.amd) {
-    define(["exports", "foo", "foo-bar", "./directory/foo-bar"], factory);
+    define(["exports", "foo", "foo-bar", "./directory/foo-bar-baz"], factory);
   } else {
     if (module && typeof module.exports !== "undefined") {
-      factoryArguments = [module.exports, require("foo"), require("foo-bar"), require("./directory/foo-bar")];
+      factoryArguments = [module.exports, require("foo"), require("foo-bar"), require("./directory/foo-bar-baz")];
       root = module;
       exportsName = "exports";
     } else {
-      factoryArguments = [global.actual = {}, global.foo, global.fooBar, global.directoryFooBar];
+      factoryArguments = [global.actual = {}, global.foo, global.fooBar, global.fooBarBaz];
       root = global;
       exportsName = "actual";
     }
@@ -18,7 +18,7 @@
       root[exportsName] = root[exportsName]["default"];
     }
   }
-})(this, function (exports, _foo, _fooBar, _directoryFooBar) {
+})(this, function (exports, _foo, _fooBar, _directoryFooBarBaz) {
   "use strict"
 
   var _interopRequire = function (obj) {

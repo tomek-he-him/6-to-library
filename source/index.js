@@ -117,7 +117,7 @@ self.prototype._pushGlobalIdentifier = function (declaration, specifier) {
   var identifier = t.toIdentifier
     (  specifier && specifier.default !== false && specifier.name && specifier.name.name
     || specifier && specifier.type == "ExportSpecifier" && specifier.id && specifier.id.name
-    || name
+    || basename(name)
     || null
     );
   if (identifier === null) throw new Error
