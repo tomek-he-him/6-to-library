@@ -18,6 +18,6 @@
       root[exportsName] = root[exportsName]["default"];
     }
   }
-})(this, function (exports, _foo, _fooBar, _fooBarBaz) {
+})(this, function (exports, _foo, _fooBar, _directoryFooBarBaz) {
   "use strict"
 });
