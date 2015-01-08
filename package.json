@@ -1,5 +1,5 @@
 { "name": "6-to-library"
-, "version": "0.3.0"
+, "version": "0.3.1"
 , "description": "The 6to5 formatter for library authors."
 , "license": "MIT"
 , "keywords":
