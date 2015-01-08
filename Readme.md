@@ -43,7 +43,7 @@ export default function (string) {
 ##### 2. Transpile through 6to5's CLI
 
 ```sh
-6to5  --modules 6-to-library  --out-file index.js  es6/up-first-letter.js
+$ 6to5  --modules 6-to-library  --out-file index.js  es6/up-first-letter.js
 ```
 
 Make sure `6to5` is installed globally, or run the local `node_modules/6to5/bin/6to5/index.js` instead.
@@ -59,7 +59,7 @@ Add the option `modules: "6-to-library"` to your `require("6to5").transform` cal
 
 ##### 3. Publish your library
 
-`npm publish`, `jspm publish`, `git push` or whatever you normally do.
+`npm publish`, `git push`, or whatever you normally do.
 
 
 ##### 4. Profit!
@@ -107,7 +107,7 @@ How does it work
 
 [“ECMAScript 6 favors the single/default export style, and gives the sweetest syntax to importing the default.”][david-herman] We do the same. If you only export the default, your library will work as seamlessly as in the examples above.
 
-Otherwise you'll have to reference each export by its name:
+Otherwise you'll have to reference each export by its specifier:
 
 ```js
 // original.js
@@ -132,7 +132,7 @@ When neither AMD nor CommonJS is supported, properties of the global object will
 
 The name of the object _exported to_ the global scope is the basename of the module's file, camel-cased.
 
-The name of an object _imported from_ the global scope is the name of the default import, or the camel-cased name of the referenced file.
+The name of an object _imported from_ the global scope is the specifier of the default import (only if you're using the syntax `import foo from "bar"`), or the camel-cased name of the referenced file.
 
 ```js
 // my-module.js
@@ -163,13 +163,13 @@ You get the following output:
 
   // AMD
   if (typeof define === "function" && define.amd) {
-    define(["exports", "./foo-bar", "baz"], factory);
+    define(["exports", "./foo-bar", "bar"], factory);
 
   } else {
 
     // CommonJS
     if (module && typeof module.exports !== "undefined") {
-      factoryArguments = [module.exports, require("./foo-bar"), require("baz")];
+      factoryArguments = [module.exports, require("./foo-bar"), require("bar")];
       root = module;
       exportsName = "exports";
 
