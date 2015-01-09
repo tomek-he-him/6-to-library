@@ -49,9 +49,9 @@ $ 6to5  --modules 6-to-library  --out-file index.js  es6/up-first-letter.js
 Make sure `6to5` is installed globally, or run the local `node_modules/6to5/bin/6to5/index.js` instead.
 
 
-##### …or transpile programatically:
+#####  …or programatically:
 
-Add the option `modules: "6-to-library"` to your `require("6to5").transform` call. Alternatively, you can pass this option directly to [gulp-6to5][] or [grunt-6to5][].
+Add the option `modules: "6-to-library"` to your `require("6to5").transform` call. You can also pass this option directly to [gulp-6to5][] or [grunt-6to5][].
 
 [gulp-6to5]: https://www.npmjs.com/package/gulp-6to5
 [grunt-6to5]: https://www.npmjs.com/package/grunt-6to5
