@@ -100,6 +100,16 @@ upFirstLetter("ęéë");  // » "Ęéë"
 
 
 
+Example
+-------
+
+You can have a look at the npm module [as][as.js], built using the 6-to-library formatter.
+
+[as.js]: https://www.npmjs.com/package/as
+
+
+
+
 How does it work
 ----------------
 
