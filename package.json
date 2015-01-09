@@ -35,7 +35,7 @@
 , "dependencies":
   { "6to5": "2.5.x"
   , "101": "0.8.x"
-  , "as": "0.2.x"
+  , "as": "~0.2.2"
   , "basename": "0.1.x"
   }
 , "devDependencies":
