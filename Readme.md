@@ -5,6 +5,10 @@
 6-to-library
 ============
 
+**This library is deprecated.** It turns out, that the core 6to5 team was working on the same feature in parallel. Starting from version 2.7.0, 6to5 exports a module directly when only the `default` is exported.
+
+***
+
 **The 6to5 formatter for library authors.**
 
 [“Author in ES6, distribute everywhere.”][ryan] Seamlessly target NPM and browsers.
