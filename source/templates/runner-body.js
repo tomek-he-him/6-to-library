@@ -6,7 +6,7 @@
     }
 
   else {
-    if (module && typeof module.exports !== "undefined") {
+    if (typeof module != "undefined" && typeof module.exports != "undefined") {
       factoryArguments = [module.exports, COMMON_ARGUMENTS];
       root = module;
       exportsName = "exports";

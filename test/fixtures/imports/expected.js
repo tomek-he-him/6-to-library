@@ -3,7 +3,7 @@
   if (typeof define === "function" && define.amd) {
     define(["exports", "foo", "foo-bar", "./directory/foo-bar-baz"], factory);
   } else {
-    if (module && typeof module.exports !== "undefined") {
+    if (typeof module != "undefined" && typeof module.exports != "undefined") {
       factoryArguments = [module.exports, require("foo"), require("foo-bar"), require("./directory/foo-bar-baz")];
       root = module;
       exportsName = "exports";
